@@ -15,7 +15,11 @@ const BoardList = () => {
             <h1>게시글 목록</h1>
             {posts.length > 0 ? (
                 posts.map((post) => (
-                    <PostCard key={post.id} post={post} />
+                    <PostCard
+                        key={post.id}
+                        title={post.title}
+                        auther={post.auther}
+                    />
                 ))
             ) : (
                 <p>게시글이 없습니다.</p>
