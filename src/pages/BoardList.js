@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { getPosts } from '../api/localStorage';
-import PostCard from '../components/post/PostCard';
+import BoardItem from '../components/board/BoardItem';
 
 const BoardList = () => {
     const [posts, setPosts] = useState([]);
@@ -12,18 +13,26 @@ const BoardList = () => {
 
     return (
         <div>
-            <h1>게시글 목록</h1>
+            <div className="ptitle">게시판 목록</div>
             {posts.length > 0 ? (
                 posts.map((post) => (
-                    <PostCard
-                        key={post.id}
-                        title={post.title}
-                        auther={post.auther}
-                    />
+                    <div className="board-wrap">
+                        <ul className="board-list">
+                            <li className="board-item">
+                                <BoardItem
+                                    key={post.id}
+                                    title={post.title}
+                                    auther={post.auther}
+                                    date={post.date}
+                                />
+                            </li>
+                        </ul>
+                    </div>
                 ))
             ) : (
-                <p>게시글이 없습니다.</p>
+                <div className="no-data-box">게시글이 없습니다.</div>
             )}
+            <Link to='/boardWrite'>글쓰기</Link>
         </div>
     );
 };
