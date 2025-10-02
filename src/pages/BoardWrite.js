@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { getPosts, savePosts as savePostsToLocal } from '../api/localStorage';
-import axios from 'axios';
 
 const BoardWrite = () => {
     const navigate = useNavigate();
@@ -18,13 +17,24 @@ const BoardWrite = () => {
         setPosts({ ...posts, [e.target.name]: e.target.value }); // value 업데이트
     };
 
-    const savePosts = async () => {
-        await axios.post('http://localhost:3000', posts).then((res) => {
-           alert('게시글이 등록되었습니다.');
-            navigate('/boardList');
-        }).catch((error) => {
-            console.log('error : ' + error);
-        });
+    const handlePosts = async () => {
+        // 게시글 데이터 생성
+        const newPost = {
+            id: uuidv4(),
+            title: title,
+            content: content,
+            date: new Date().toLocaleDateString(),
+        }
+
+        // 기존 목록에 새 게시글 추가
+        const existPost = getPosts();
+        const updatePost = [newPost, ...existPost];
+
+        // 로컬 스토리지에 저장
+        savePostsToLocal(updatePost);
+
+        alert('게시글이 등록되었습니다.');
+        navigate('/boardList');
     }
 
     const cancelAddPost = () => {
@@ -48,7 +58,7 @@ const BoardWrite = () => {
                 </li>
             </ul>
             <div className="btn-wrap">
-                <button className="btn-md" onClick={savePosts}><span className="text">등록</span></button>
+                <button className="btn-md" onClick={handlePosts}><span className="text">등록</span></button>
                 <button className="btn-md" onClick={cancelAddPost}><span className="text">취소</span></button>
             </div>
         </div>
