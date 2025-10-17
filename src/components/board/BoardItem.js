@@ -1,11 +1,13 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const BoardItem = ({ title, date }) => {
+const BoardItem = ({ post }) => {
     return (
         <li className="board-item">
-            <Link to='/boardDetail' className="board-tit">{title}</Link>
-            <p>{date}</p>
+            <Link to={`/boardDetail/${post.id}`} className="btn-link">
+                <span className="board-tit">{post.title}</span>
+                <span className="board-date">{post.date}</span>
+            </Link>
         </li>
     );
 };

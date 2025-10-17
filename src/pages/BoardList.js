@@ -11,24 +11,18 @@ const BoardList = () => {
         setPosts(storedPosts);
     }, []);
 
+    const postList = posts.map((post) => <BoardItem key={post.id} post={post}/>);
+
     return (
         <div>
-            <div className="ptitle">게시판 목록</div>
-            <div className="board-wrap">
-                <ul className="board-list">
-                    {posts.length > 0 ? (
-                        posts.map((post) => (
-                            <BoardItem
-                                key={post.id}
-                                title={post.title}
-                                date={post.date}
-                            />
-                        ))
-                    ) : (
-                        <div className="no-data-box">게시글이 없습니다.</div> // TODO: ul 밖으로 꺼내야함
-                    )}
-                </ul>
-            </div>
+            <h2 className="ptitle">게시판 목록</h2>
+            {posts.length > 0 ? (
+                <div className="board-wrap">
+                    <ul className="board-list">{postList}</ul>
+                </div>
+            ) : (
+                <div className="no-data-box">게시글이 없습니다.</div>
+            )}
             <Link to='/boardWrite'>글쓰기</Link>
         </div>
     );
