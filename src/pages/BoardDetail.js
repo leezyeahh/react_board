@@ -17,7 +17,7 @@ const BoardDetail = () => {
     }, [id]);
 
     if (!post) {
-        return <div>게시글을 로드 중이거나, 게시글이 존재하지 않습니다.</div>;
+        return <div>FAIL</div>;
     }
 
     return (
