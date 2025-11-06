@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getPosts } from '../api/localStorage';
-import BoardItem from '../components/board/BoardItem';
+import Button from '../components/atoms/Button';
+import NoDataBox from '../components/molecules/NoDataBox';
+import BoardItem from '../components/organisms/BoardItem';
 
 const BoardList = () => {
     const [posts, setPosts] = useState([]);
@@ -21,9 +23,11 @@ const BoardList = () => {
                     <ul className="board-list">{postList}</ul>
                 </div>
             ) : (
-                <div className="no-data-box">게시글이 없습니다.</div>
+                <NoDataBox>
+                  <span className="no-data-desc">게시글이 없습니다.</span>
+                </NoDataBox>
             )}
-            <Link to='/boardWrite'>글쓰기</Link>
+            <Button size='sm' color='black' to='/boardWrite'><span className="text">글쓰기</span></Button>
         </div>
     );
 };
