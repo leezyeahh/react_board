@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import IcoNoData from '../../assets/common/comm_ico_no_data.png';
 
 const CommNoDataBox = styled.div`

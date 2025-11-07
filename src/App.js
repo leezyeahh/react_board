@@ -3,6 +3,7 @@ import BoardList from './pages/BoardList';
 import BoardWrite from './pages/BoardWrite';
 import BoardDetail from './pages/BoardDetail';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Button from './components/atoms/Button';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
                 <Route path="/boardWrite" element={<BoardWrite />} />
                 <Route path="/boardDetail/:id" element={<BoardDetail />} />
             </Routes>
+          <Button size='sm' color='black' to='/boardList'><span className="text">목록</span></Button>
         </BrowserRouter>
     </div>
   );
