@@ -58,13 +58,21 @@ const CommButton = styled.button`
       background-color: #000;
       color: #fff;
     `}
+
+  ${(props) =>
+    props.color === 'line-black' &&
+    css`
+      background-color: #fff;
+      border: 1px solid #000;
+      color: #000;
+    `}
 `;
 
 const Button = ({ children, to, onClick, ...props }) => {
   // 링크 이동이면 Link
   if (to) {
     return (
-      <CommButton as={Link} to={to} {...props}>{children}</CommButton>
+      <CommButton as={Link} to={to} className={`btn-{}`} {...props}>{children}</CommButton>
     );
   }
   // 기능성이면 Button

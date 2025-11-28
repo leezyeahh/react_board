@@ -6,16 +6,16 @@ const CommNoDataBox = styled.div`
   padding: 100px 0;
   text-align: center;
     
-    .no-data-desc {
-      display: inline-block;
-      padding-top: 60px;
-      background: url(${IcoNoData}) center top / 42px no-repeat;
-      font-weight: 400;
-      font-size: 13px;
-      line-height: 19px;
-      vertical-align: top;
-      color: #999;
-    }
+  .no-data-desc {
+    display: inline-block;
+    padding-top: 60px;
+    background: url(${IcoNoData}) center top / 42px no-repeat;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 19px;
+    vertical-align: top;
+    color: #999;
+  }
 `
 
 const NoDataBox = ({ children, ...props }) => {

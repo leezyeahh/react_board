@@ -15,40 +15,36 @@ const CommBoardWrap = styled.div`
     
     .board-item {
       position: relative;
-      border-top: 1px solid #e5e5e5;
+      border-bottom: 1px solid #e5e5e5;
       padding: 24px 0;
       text-align: left;
         
-        .board-tit {
-            margin: 0;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 20px;
-        }
-        
-        .board-date {
-          display: inline-block;
-          margin-top: 10px;
-          font-weight: 400;
-          font-size: 12px;
-          line-height: 17px;
-          color: #999;
-          vertical-align: top;
-        }
-        
-        .btn-link {
-          z-index: 1;
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-        }
-        
-        &:last-child {
-            border-bottom: 1px solid #e5e5e5;
-        }
+      .board-tit {
+        margin: 0;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+      }
+      
+      .board-date {
+        display: inline-block;
+        margin-top: 10px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 17px;
+        color: #999;
+        vertical-align: top;
+      }
+      
+      .btn-link {
+        z-index: 1;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+      }
     }
   }
     
