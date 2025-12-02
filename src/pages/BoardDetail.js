@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import Button from "../components/atoms/Button";
 import BtnWrap from "../components/molecules/BtnWrap";
+import ContBox from "../components/organisms/ContBox";
 
 const BoardDetail = () => {
   const { id } = useParams();
@@ -28,13 +29,17 @@ const BoardDetail = () => {
 
   return (
     <div>
-      <h2 className="ptitle">게시글 상세</h2>
-      <p>{post.title}</p>
-      <div>{post.content}</div>
-      <BtnWrap>
-        <Button size='sm' color='black' onClick={goBack}><span className="text">목록</span></Button>
-        <Button size='sm' color='line-black' to='/boardEdit'><span className="text">편집</span></Button>
-      </BtnWrap>
+      <ContBox>
+        <div className="cont-inner">
+          <h2 className="ptitle">게시글 상세</h2>
+          <p>{post.title}</p>
+          <div>{post.content}</div>
+          <BtnWrap size='lg' align='right'>
+            <Button size='sm' color='black' onClick={goBack}><span className="text">목록</span></Button>
+            <Button size='sm' color='line-black' to='/boardEdit'><span className="text">편집</span></Button>
+          </BtnWrap>
+        </div>
+      </ContBox>
     </div>
   )
 }
